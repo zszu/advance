@@ -3,6 +3,7 @@ namespace backend\controllers;
 
 use backend\controllers\traits\ParamTrait;
 use backend\controllers\traits\SiteMapTrait;
+use backend\models\ChangePwdForm;
 use common\models\Seo;
 use \Yii;
 
@@ -46,6 +47,40 @@ class MainController extends BaseController
 
         return $this->render('seo', [
             'models' => $models
+        ]);
+    }
+    /**
+     * 用户个人信息
+     */
+    public function actionUserInfo(){
+        $model = Yii::$app->user->identity;
+
+        if(Yii::$app->request->post() && $model->load(Yii::$app->request->post())){
+            if($model->save()){
+                return $this->message("个人信息修改成功" , $this->redirect(['user-info']));
+            }
+        }
+        return $this->render('user-info' , [
+            'model' => $model,
+        ]);
+    }
+    /**
+     * 修改密码
+     */
+    public  function actionUserResetPwd(){
+        $model = new ChangePwdForm();
+        $model->user = Yii::$app->user->identity;
+
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            if ($model->doSave()) {
+                return $this->message('密码修改成功！', $this->redirect(['site/logout']));
+            } else {
+                Yii::error($model->errors);
+                return $this->message('密码修改失败！', $this->redirect(['user-reset-pwd']));
+            }
+        }
+        return $this->render('user-reset-pwd' , [
+            'model' => $model,
         ]);
     }
 }

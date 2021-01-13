@@ -19,6 +19,11 @@ class Application extends Service
         'actionLog' => 'services\common\ActionLogService',
         'log' => 'services\common\LogService',
         'actionBehavior' => 'services\common\ActionBehaviorService',
+        /** ------ rbac ------ **/
+        'rbacAuthItem' => 'services\rbac\AuthItemService',
+        'rbacAuthItemRole' => 'services\rbac\AuthItemRoleService',
+        'rbacAuthRole' => 'services\rbac\AuthRoleService',
+        'rbacAuthAssignment' => 'services\rbac\AuthAssignmentService',
     ];
 
 }

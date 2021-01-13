@@ -22,7 +22,6 @@ class AppAsset extends AssetBundle
 
     ];
     public $js = [
-
         'js/bootstrap.min.js',
         'js/perfect-scrollbar.min.js',
         'js/main.min.js',

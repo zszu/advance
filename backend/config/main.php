@@ -74,7 +74,6 @@ return [
         //rbac
         'authManager' => [
             'class' =>'yii\rbac\DbManager',
-//            'defaultRoles' => [AUTH_ROLE_ADMIN, AUTH_ROLE_WORKER],
         ],
 
         'assetManager' => [

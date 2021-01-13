@@ -38,6 +38,7 @@ class Item extends BaseModel
     public function rules()
     {
         return [
+            [['title' , 'name'] , 'required'],
             [['order_by', 'pid', 'level', 'status', 'created_at', 'updated_at'], 'integer'],
             [['title', 'name'], 'string', 'max' => 255],
             [['type'], 'string', 'max' => 20],
@@ -52,8 +53,8 @@ class Item extends BaseModel
     {
         return [
             'id' => 'ID',
-            'title' => 'Title',
-            'name' => 'Name',
+            'title' => '名称',
+            'name' => '别名',
             'order_by' => 'Order By',
             'type' => 'Type',
             'pid' => 'Pid',
@@ -77,5 +78,23 @@ class Item extends BaseModel
         $models = ArrayHelper::itemsMerge($models);
         $models = ArrayHelper::map(ArrayHelper::itemsMergeDropDown($models) , 'id' , 'title');
         return ArrayHelper::merge([0=>'顶级'] , $models);
+    }
+    /**
+     * 关联父级
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getParent()
+    {
+        return $this->hasOne(self::class, ['id' => 'pid']);
+    }
+    public function beforeSave($insert)
+    {
+        $parent = self::findOne($this->pid);
+        if($parent){
+            $this->level += $parent->level;
+        }
+
+        return parent::beforeSave($insert);
     }
 }

@@ -52,6 +52,7 @@ phpunit.phar
 /api/runtime
 /backend/runtime
 /frontend/runtime
+/merchant/runtime
 
 
 

@@ -18,6 +18,7 @@ class Auth
      */
     public static function isSuperAdmin()
     {
+
         if (!in_array(Yii::$app->id, ['backend'])) {
             return false;
         }
@@ -34,11 +35,13 @@ class Auth
      */
     public static function verify(string $route, $defaultAuth = [])
     {
+
         if(self::isSuperAdmin()){
             return true;
         }
         $auth = !empty($defaultAuth) ? $defaultAuth : self::getAuth();
-        if (in_array('/*', $auth) || in_array(Yii::$app->id.$route, $auth)) {
+
+        if (in_array('/*', $auth) || in_array($route, $auth)) {
             return true;
         }
         return self::multistageCheck($route, $auth);
@@ -97,19 +100,9 @@ class Auth
         if (self::$auth) {
             return self::$auth;
         }
-        $auth = Yii::$app->authManager;
-//        $role =  $auth->getAssignments(Yii::$app->user->id);
-        //获取 当前用户 拥有的角色
-        $roleArr = $auth->getRolesByUser(Yii::$app->user->id);
-        $authArr = [];
-        foreach ($roleArr as $role){
-            $authArr =  $auth->getPermissionsByRole($role->name);
-            foreach ($authArr as $k => $value){
-                $authArr[$k] = $value->name;
-            }
-        }
+        $role = Yii::$app->services->rbacAuthRole->getRole();
+        self::$auth = Yii::$app->services->rbacAuthItemRole->getAuthByRole($role, Yii::$app->id);
 
-
-        return self::$auth = $authArr;
+        return self::$auth;
     }
 }

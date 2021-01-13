@@ -6,23 +6,25 @@ $name = Yii::$app->request->get('name' , null);
 
 $menus = [
     ['title' => '首页' , 'icon' => 'home' , 'fullUrl' => 'site/index' , 'controller' => ['site']],
-    ['title' => '测试功能' , 'icon' => 'palette',  'controller' => ['test'],
+    ['title' => '测试功能' , 'icon' => 'alert-circle-outline',  'controller' => ['test'],
         '-' =>[
             ['title' => '文件管理' , 'fullUrl' => 'test/index'],
         ]],
-    ['title' => '网站设置' , 'icon' => 'palette',  'controller' => ['main'],
+    ['title' => '站点设置' , 'icon' => 'palette',  'controller' => ['main'],
         '-' =>[
-            ['title' => '网站设置'  , 'fullUrl' => 'main/site-param'],
-            ['title' => '网站 SEO 设置' , 'fullUrl' => 'main/seo'],
+            ['title' => '基本设置'  , 'fullUrl' => 'main/site-param'],
+            ['title' => '系统设置'  , 'fullUrl' => 'main/system-param'],
+            ['title' => '邮箱设置'  , 'fullUrl' => 'main/email-param'],
+            ['title' => 'SEO设置' , 'fullUrl' => 'main/seo'],
         ]],
-    ['title' => '运营管理' , 'icon' => 'format-align-justify','controller' => ['goods' , 'order' , 'integral' , 'type'],
+    ['title' => '运营管理' , 'icon' => 'decagram','controller' => ['goods' , 'order' , 'integral' , 'type'],
         '-' =>[
             ['title' => '订单管理'  , 'fullUrl' => 'order/index'],
             ['title' => '金额管理' , 'fullUrl' => 'integral/index'],
             ['title' => '商品管理' , 'fullUrl' => 'goods/index'],
             ['title' => '商品分类管理' , 'fullUrl' => ['type/index','name'=>'goods']],
         ]],
-    ['title' => '活动管理' , 'icon' => 'format-align-justify','controller' => ['active' , 'spike' , 'coupon'],
+    ['title' => '活动管理' , 'icon' => 'alarm-light','controller' => ['active' , 'spike' , 'coupon'],
         '-' =>[
             ['title' => '拼团活动'  , 'fullUrl' => 'active/index'],
             ['title' => '秒杀活动' , 'fullUrl' => 'spike/index'],
@@ -47,9 +49,6 @@ $menus = [
             ['title' => '行为日志' , 'fullUrl' => 'action-log/index'],
         ]],
     ['title' => '菜单管理' , 'icon' => 'collage','fullUrl' => 'menu/index' , 'controller' => ['menu']],
-
-
-
 
 ];
 ?>

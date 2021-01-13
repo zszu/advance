@@ -88,10 +88,7 @@ class BaseController extends Controller
             'options' => ['tag' => 'div','class'=>'form-group'],
             'template' => "{label}{input}{hint}{error}"
         ]);
-        Yii::$container->set('yii\grid\GridView', [
-            'layout' => "\n{items}\n<div class=\"pages\"><div class=\"pull-right\">{summary}".'条记录</div>{pager}</div>',
-            'summary'=>'共有{totalCount}',
-        ]);
+
 
         Yii::$container->set('yii\grid\GridView', [
             'layout' => "{items}\n<div class='pages'><div class='pull-right'>{summary}</div>{pager}\n</div>",
@@ -104,13 +101,14 @@ class BaseController extends Controller
 
 
         // 判断当前模块的是否为主模块, 模块+控制器+方法
-        $permissionName =  '/' . Yii::$app->controller->route;
+        $permissionName =  '/' . Yii::$app->id . '/' . Yii::$app->controller->route;
         // 判断是否忽略校验
         if (in_array($permissionName, Yii::$app->params['noAuthRoute'])) {
             return true;
         }
-//        var_dump($permissionName);die;
+
         // 开始权限校验
+
         if (!Auth::verify($permissionName)) {
             throw new UnauthorizedHttpException('对不起，您现在还没获此操作的权限');
         }

@@ -195,10 +195,10 @@ class  AuthController extends BaseController
      */
     public function actionRuleEdit()
     {
-        $id = \Yii::$app->request->get('id', null);
+        $id = Yii::$app->request->get('id', null);
         $model = $this->findModel(Item::className() , $id);
         if(!$model){
-            return $this->message('没用该规则' , $this->redirect(['user'] , 'error'));
+            return $this->message('没有该规则' , $this->redirect(['user'] , 'error'));
         }
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             if ($model->save()) {

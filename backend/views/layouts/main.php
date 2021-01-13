@@ -34,8 +34,8 @@ $action = Yii::$app->controller->action->id;
                                 <span><?= Yii::$app->user->identity->username;?>  <span class="caret"></span></span>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-right">
-                                <li> <a href="<?= Url::toRoute(['user/user-info'])?>"><i class="mdi mdi-account"></i> 个人信息</a> </li>
-                                <li> <a href="<?= Url::toRoute(['user/user-reset-pwd'])?>"><i class="mdi mdi-lock-outline"></i> 修改密码</a> </li>
+                                <li> <a href="<?= Url::toRoute(['main/user-info'])?>"><i class="mdi mdi-account"></i> 个人信息</a> </li>
+                                <li> <a href="<?= Url::toRoute(['main/user-reset-pwd'])?>"><i class="mdi mdi-lock-outline"></i> 修改密码</a> </li>
 
                                 <li> <a href="<?= Url::toRoute(['base/clear-cache']);?>"><i class="mdi mdi-delete"></i> 清空缓存</a></li>
                                 <li class="divider"></li>

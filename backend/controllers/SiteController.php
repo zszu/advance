@@ -1,6 +1,7 @@
 <?php
 namespace backend\controllers;
 
+use backend\models\ChangePwdForm;
 use backend\models\LoginForm;
 use common\models\Comment;
 use common\models\News;
@@ -8,9 +9,7 @@ use common\models\User;
 use Yii;
 
 use yii\filters\AccessControl;
-use yii\filters\VerbFilter;
 use yii\web\Controller;
-
 
 /**
  * Site controller
@@ -71,7 +70,6 @@ class SiteController extends Controller
     }
 
 
-
     /**
      * Login action.
      *
@@ -99,6 +97,7 @@ class SiteController extends Controller
         Yii::$app->user->logout();
         return $this->redirect(['index']);
     }
+
 
 
 }
