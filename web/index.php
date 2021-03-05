@@ -6,6 +6,7 @@ require dirname(__DIR__) . '/vendor/autoload.php';
 require dirname(__DIR__) . '/vendor/yiisoft/yii2/Yii.php';
 require dirname(__DIR__) . '/common/config/bootstrap.php';
 require dirname(__DIR__) . '/frontend/config/bootstrap.php';
+var_dump(dirname(__DIR__));die;
 
 $config = yii\helpers\ArrayHelper::merge(
     require dirname(__DIR__) . '/common/config/main.php',
