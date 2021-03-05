@@ -3,6 +3,7 @@ namespace merchant\models\form;
 
 use Yii;
 use yii\base\Model;
+use merchant\models\UserObj;
 
 /**
  * Login form

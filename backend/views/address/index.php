@@ -26,7 +26,7 @@ use \yii\bootstrap\Modal;
                     'contentOptions'=>['width'=>'30px'],
                 ],
                 [
-                    'attribute'=>'id',
+                    'attribute'=>'summary',
                     'label'=>'收货地址',
                     'value'=>function($model){
                         return $model['province']  .'-'.$model['city'] .'-'.$model['district'].'-'.Html::encode($model['summary']);
@@ -48,8 +48,8 @@ use \yii\bootstrap\Modal;
 
                             return Html::a('编辑'  ,$url,
                                 [
-                                    'id'=>'edit',
-                                    'class'=>'btn btn-primary btn-sm edit',
+                                    // 'id'=>'edit',
+                                    'class'=>'btn btn-primary btn-sm',
                                     'data-toggle'=>'modal',
                                     'data-target'=>'#ajaxModalLg',
                                     'data-id' =>$key,

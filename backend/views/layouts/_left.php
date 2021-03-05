@@ -6,6 +6,7 @@ $name = Yii::$app->request->get('name' , null);
 
 $menus = [
     ['title' => '首页' , 'icon' => 'home' , 'fullUrl' => 'site/index' , 'controller' => ['site']],
+    ['title' => '数据库迁移' , 'icon' => 'collage','fullUrl' => 'migrate/index' , 'controller' => ['migrate']],
     ['title' => '测试功能' , 'icon' => 'alert-circle-outline',  'controller' => ['test'],
         '-' =>[
             ['title' => '文件管理' , 'fullUrl' => 'test/index'],

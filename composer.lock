@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2e671e999079884c5170a3355fba6f0f",
+    "content-hash": "5e24165c15d10405cfc7471f1b8de04a",
     "packages": [
         {
             "name": "bailangzhan/yii2-webuploader",
@@ -392,6 +392,53 @@
                 "html"
             ],
             "time": "2019-10-28T03:44:26+00:00"
+        },
+        {
+            "name": "jianyan74/yii2-console-migration",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jianyan74/yii2-console-migration.git",
+                "reference": "98c939deb98c1460ea50065d9bf4425d5513549d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jianyan74/yii2-console-migration/zipball/98c939deb98c1460ea50065d9bf4425d5513549d",
+                "reference": "98c939deb98c1460ea50065d9bf4425d5513549d",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "jianyan\\migration\\": "./src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "jianyan74"
+                }
+            ],
+            "description": "yii2命令行中使用migration备份和还原数据库",
+            "keywords": [
+                "console",
+                "migration",
+                "yii2"
+            ],
+            "support": {
+                "issues": "https://github.com/jianyan74/yii2-console-migration/issues",
+                "source": "https://github.com/jianyan74/yii2-console-migration/tree/master"
+            },
+            "time": "2019-08-06T06:18:11+00:00"
         },
         {
             "name": "jianyan74/yii2-treegrid",

@@ -9,20 +9,20 @@ class AddressController extends BaseController
     public  $modelClass = 'common\models\Address';
     public  $pageSize =20;
     use Curd;
-    public function actionEdit()
-    {
-        $id = \Yii::$app->request->get('id', null);
+    // public function actionEdit()
+    // {
+    //     $id = \Yii::$app->request->get('id', null);
 
-        $model = $this->findModel($id);
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->message("提交成功", $this->redirect(['index']));
-        }
+    //     $model = $this->findModel($id);
+    //     if ($model->load(Yii::$app->request->post()) && $model->save()) {
+    //         return $this->message("提交成功", $this->redirect(['index']));
+    //     }
 
-        return $this->render('edit', [
-            'model' => $model,
-        ]);
+    //     return $this->render('edit', [
+    //         'model' => $model,
+    //     ]);
 
-    }
+    // }
 
     public function actionAjaxEdit()
     {
@@ -34,7 +34,6 @@ class AddressController extends BaseController
         if(!$model){
             throw new NotFoundHttpException('没有此记录');
         }
-        $model = $this->findModel($id);
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->message("提交成功", $this->redirect(['index']));
         }

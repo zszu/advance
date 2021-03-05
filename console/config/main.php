@@ -36,5 +36,10 @@ return [
         ],
 
     ],
+    'controllerMap' => [
+        'migrate' => [
+            'class' => 'jianyan\migration\ConsoleController',
+        ],
+    ],
     'params' => $params,
 ];

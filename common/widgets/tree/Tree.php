@@ -166,13 +166,15 @@ class Tree extends InputWidget
      * @param string $child
      * @return array
      */
-    protected static function itemsMerge(array $items, $pid = 0, $idField = "id", $pidField = 'pid', $child = '-')
+    protected static function itemsMerge(array $items, $pid = 0)
     {
         $arr = [];
         foreach ($items as $v) {
-            if ($v[$pidField] === $pid) {
-                $v[$child] = self::itemsMerge($items, $v[$idField], $idField, $pidField);
-                $arr[] = $v;
+            if (is_numeric($pid)) {
+                if ($v['pid'] == $pid) {
+                    $v['-'] = self::itemsMerge($items, $v['id']);
+                    $arr[] = $v;
+                }
             }
         }
 

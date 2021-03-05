@@ -176,7 +176,7 @@ class  AuthController extends BaseController
      *  规则
      */
     public function actionRule(){
-        $query = Item::find()->select(['id','title','name','summary','created_at'])
+        $query = Item::find()->select(['id','pid','title','name','summary','created_at'])
             ->where(['status'=>STATUS_ACTIVE])
             ->orderBy('order_by desc , created_at')
             ->asArray();

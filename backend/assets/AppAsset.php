@@ -12,7 +12,7 @@ class AppAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-        'css/bootstrap.min.css',
+        // 'css/bootstrap.min.css',
         'css/materialdesignicons.min.css',
         'css/style.min.css',
         //弹框

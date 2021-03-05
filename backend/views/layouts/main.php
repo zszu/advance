@@ -384,6 +384,7 @@ $this->registerJs(<<<JS
 
     // 小模拟框加载完成
     $('#ajaxModal').on('shown.bs.modal', function (e) {
+       
         autoFontColor()
     });
     // 大模拟框加载完成
